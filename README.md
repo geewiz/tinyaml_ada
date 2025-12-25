@@ -7,6 +7,8 @@ TinyAML parses a safe subset of YAML suitable for configuration files. All value
 > [!NOTE]
 > This library is under early development. Until release of version 1.0, expect breaking changes even with only minor version bumps. Only from 1.0 on, we'll adhere fully to semantic versioning.
 
+[![Alire Build](https://github.com/geewiz/tinyaml_ada/actions/workflows/ada.yml/badge.svg)](https://github.com/geewiz/tinyaml_ada/actions/workflows/ada.yml)
+
 ## Installation
 
 Add to your Alire project:
