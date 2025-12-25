@@ -9,6 +9,22 @@ with Tinyaml.Schemas.Any;
 
 package body Tinyaml.Schemas.Map is
 
+   procedure Free_Fields (M : in out Map_Schema) is
+      use Field_Maps;
+   begin
+      for C in M.Fields.Iterate loop
+         declare
+            Info  : Field_Info := Element (C);
+            S_Acc : Schema_Access := Info.Field_Schema;
+         begin
+            if S_Acc /= null then
+               Free_Schema (S_Acc);
+            end if;
+         end;
+      end loop;
+      M.Fields.Clear;
+   end Free_Fields;
+
    procedure Add_Field
      (M            : in out Map_Schema'Class;
       Name         : String;

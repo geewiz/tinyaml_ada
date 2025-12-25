@@ -28,6 +28,10 @@ package Tinyaml.Nodes is
    function Is_Sequence (N : YAML_Node'Class) return Boolean;
    function Is_Map (N : YAML_Node'Class) return Boolean;
 
+   --  Memory management: recursively free a node and all its children
+   procedure Free_Node (N : in out Node_Access)
+     with Post => N = null;
+
    ---------------------------------------------------------------------------
    --  Common Types
    ---------------------------------------------------------------------------

@@ -76,6 +76,9 @@ package Tinyaml.Schemas.Map is
       Schema   : Map_Schema;
       Optional : Boolean := False);
 
+   --  Memory management: free all field schemas (used by Free_Schema)
+   procedure Free_Fields (M : in out Map_Schema);
+
 private
 
    type Field_Info is record

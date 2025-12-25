@@ -328,4 +328,11 @@ package body Tinyaml.Parser is
       end case;
    end Parse_Value;
 
+   function Parse_Document (Input : String) return Documents.Document is
+   begin
+      return Doc : Documents.Document do
+         Documents.Set_Root (Doc, Parse (Input));
+      end return;
+   end Parse_Document;
+
 end Tinyaml.Parser;

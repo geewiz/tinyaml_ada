@@ -41,4 +41,8 @@ package Tinyaml.Schemas is
 
    type Schema_Access is access all Schema'Class;
 
+   --  Memory management: recursively free a schema and any nested schemas
+   procedure Free_Schema (S : in out Schema_Access)
+     with Post => S = null;
+
 end Tinyaml.Schemas;
