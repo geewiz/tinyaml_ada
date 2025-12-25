@@ -19,6 +19,7 @@ alr with tinyaml
 
 ```ada
 with Ada.Text_IO;
+with Tinyaml.Documents;     use Tinyaml.Documents;
 with Tinyaml.Parser;
 with Tinyaml.Nodes;         use Tinyaml.Nodes;
 with Tinyaml.Nodes.Prelude; use Tinyaml.Nodes.Prelude;
@@ -29,10 +30,10 @@ procedure Example is
      "  host: localhost" & ASCII.LF &
      "  port: 5432";
 
-   Doc : Node_Access;
+   --  Document automatically frees memory when it goes out of scope
+   Doc : constant Document := Tinyaml.Parser.Parse_Document (Config);
 begin
-   Doc := Tinyaml.Parser.Parse (Config);
-   Ada.Text_IO.Put_Line (Get_String (Doc, "database.host"));  -- "localhost"
+   Ada.Text_IO.Put_Line (Get_String (Root (Doc), "database.host"));  -- "localhost"
 end Example;
 ```
 
@@ -96,7 +97,15 @@ These YAML features are intentionally rejected to keep configurations simple and
 ### Parsing
 
 ```ada
-Doc := Tinyaml.Parser.Parse (Input : String) return Node_Access;
+--  Recommended: automatic memory management with Document wrapper
+Doc : Document := Tinyaml.Parser.Parse_Document (Input);
+Root_Node : Node_Access := Root (Doc);  --  Access the root node
+--  Memory is freed when Doc goes out of scope
+
+--  Alternative: manual memory management
+Doc : Node_Access := Tinyaml.Parser.Parse (Input);
+--  ... use Doc ...
+Free_Node (Doc);  --  Must call explicitly to avoid memory leak
 ```
 
 ### Node Types and Navigation
@@ -155,6 +164,30 @@ Schema.Enum ("level", (1 => "low", 2 => "high"));
 Schema.Seq ("tags", To_Seq_Item (Str_Schema'(null record)));
 Schema.Map ("database", Db_Schema);                     -- Nested map
 ```
+
+### Memory Management
+
+TinyAML provides two approaches for memory management:
+
+**Automatic (recommended):** Use `Document` which is a controlled type that automatically frees the entire node tree when it goes out of scope:
+
+```ada
+declare
+   Doc : constant Document := Tinyaml.Parser.Parse_Document (Config);
+begin
+   Put_Line (Get_String (Root (Doc), "database.host"));
+end;  --  All nodes freed automatically here
+```
+
+**Manual:** Use `Parse` and call `Free_Node` explicitly:
+
+```ada
+Doc : Node_Access := Tinyaml.Parser.Parse (Config);
+--  ... use Doc ...
+Free_Node (Doc);  --  Recursively frees all nodes; sets Doc to null
+```
+
+For schemas, `Free_Schema` is available for cleanup when schemas are created dynamically, though schemas are typically static and live for the program's lifetime.
 
 ## Building from Source
 

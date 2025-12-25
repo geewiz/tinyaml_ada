@@ -1,5 +1,6 @@
 with Test_Harness;
 with Tinyaml;
+with Tinyaml.Documents;
 with Tinyaml.Parser;
 with Tinyaml.Nodes;
 with Tinyaml.Nodes.Map;
@@ -10,6 +11,7 @@ with Tinyaml.Nodes.Sequence;
 package body Test_Parser is
 
    use Test_Harness;
+   use Tinyaml.Documents;
    use Tinyaml.Nodes;
    use Tinyaml.Nodes.Map;
    use Tinyaml.Nodes.Navigation;
@@ -180,6 +182,44 @@ package body Test_Parser is
       Pass;
    end Test_Get_String;
 
+   procedure Test_Parse_Document is
+      Input : constant String :=
+        "database:" & ASCII.LF &
+        "  host: localhost" & ASCII.LF &
+        "  port: 5432";
+   begin
+      Start_Test ("Parse_Document with automatic memory management");
+      declare
+         Doc : constant Document := Tinyaml.Parser.Parse_Document (Input);
+      begin
+         Assert (not Is_Empty (Doc), "Document should not be empty");
+         Assert (Root (Doc) /= null, "Root should not be null");
+         Assert (Is_Map (Root (Doc).all), "Root should be a map");
+         Assert_Equal ("localhost", Get_String (Root (Doc), "database.host"));
+         Assert_Equal ("5432", Get_String (Root (Doc), "database.port"));
+      end;
+      --  Document goes out of scope here, memory is automatically freed
+      Pass;
+   end Test_Parse_Document;
+
+   procedure Test_Free_Node is
+      Input : constant String :=
+        "items:" & ASCII.LF &
+        "  - one" & ASCII.LF &
+        "  - two" & ASCII.LF &
+        "  - three";
+      Doc : Node_Access;
+   begin
+      Start_Test ("Free_Node deallocates tree");
+      Doc := Tinyaml.Parser.Parse (Input);
+      Assert (Doc /= null, "Parse should return non-null");
+      Assert (Is_Map (Doc.all), "Root should be a map");
+      --  Manually free the tree
+      Free_Node (Doc);
+      Assert (Doc = null, "After Free_Node, access should be null");
+      Pass;
+   end Test_Free_Node;
+
    ---------------
    -- Run_Tests --
    ---------------
@@ -198,6 +238,8 @@ package body Test_Parser is
       Test_Duplicate_Key_Rejected;
       Test_Navigate_Path;
       Test_Get_String;
+      Test_Parse_Document;
+      Test_Free_Node;
    end Run_Tests;
 
 end Test_Parser;

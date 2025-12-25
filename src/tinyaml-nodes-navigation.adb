@@ -1,12 +1,9 @@
 with Ada.Strings.Fixed;
-with Ada.Strings.Unbounded;
 
 with Tinyaml.Nodes.Map;
 with Tinyaml.Nodes.Scalar;
 
 package body Tinyaml.Nodes.Navigation is
-
-   use Ada.Strings.Unbounded;
 
    function Get_String
      (N    : YAML_Node'Class;
@@ -20,7 +17,7 @@ package body Tinyaml.Nodes.Navigation is
       if Target.all not in Scalar.Scalar_Node'Class then
          raise Access_Error with "Value at path is not a scalar: " & Path;
       end if;
-      return To_String (Scalar.Scalar_Node (Target.all).Value);
+      return Scalar.Scalar_Node (Target.all).Value;
    end Get_String;
 
    function Get_String (N : Node_Access; Path : String) return String is
@@ -37,9 +34,10 @@ package body Tinyaml.Nodes.Navigation is
    is
       use Ada.Strings.Fixed;
 
-      Current : Node_Access;
-      Start   : Positive := Path'First;
-      Dot_Pos : Natural;
+      Current    : Node_Access := null;
+      Start      : Positive := Path'First;
+      Dot_Pos    : Natural;
+      First_Iter : Boolean := True;
    begin
       --  Handle empty path
       if Path'Length = 0 then
@@ -50,9 +48,6 @@ package body Tinyaml.Nodes.Navigation is
       if N not in Map.Map_Node'Class then
          return null;  --  Can't navigate from non-map
       end if;
-
-      --  Create an access to N (we need to work with access types)
-      Current := new YAML_Node'Class'(N);
 
       --  Parse path components separated by dots
       loop
@@ -65,16 +60,23 @@ package body Tinyaml.Nodes.Navigation is
                else
                   Path (Start .. Dot_Pos - 1));
          begin
-            --  Navigate to next component
-            if Current.all not in Map.Map_Node'Class then
-               return null;  --  Can't navigate through non-map
+            if First_Iter then
+               --  First iteration: use N directly (avoid allocation)
+               First_Iter := False;
+               if not Map.Map_Node (N).Contains (Key) then
+                  return null;
+               end if;
+               Current := Map.Map_Node (N).Get (Key);
+            else
+               --  Subsequent iterations: use Current
+               if Current.all not in Map.Map_Node'Class then
+                  return null;
+               end if;
+               if not Map.Map_Node (Current.all).Contains (Key) then
+                  return null;
+               end if;
+               Current := Map.Map_Node (Current.all).Get (Key);
             end if;
-
-            if not Map.Map_Node (Current.all).Contains (Key) then
-               return null;  --  Key not found
-            end if;
-
-            Current := Map.Map_Node (Current.all).Get (Key);
 
             --  Check if we're done
             if Dot_Pos = 0 then

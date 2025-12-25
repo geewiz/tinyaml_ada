@@ -14,6 +14,13 @@ package body Tinyaml.Schemas.Seq is
       return Item.Schema_Ref.all;
    end Get_Schema;
 
+   procedure Free_Item_Schema (Item : in out Seq_Item) is
+   begin
+      if Item.Schema_Ref /= null then
+         Free_Schema (Item.Schema_Ref);
+      end if;
+   end Free_Item_Schema;
+
    overriding function Is_Valid
      (S : Seq_Schema; N : Nodes.Node_Access) return Boolean
    is

@@ -10,6 +10,9 @@ package Tinyaml.Schemas.Seq is
    function To_Seq_Item (S : Schema'Class) return Seq_Item;
    function Get_Schema (Item : Seq_Item) return Schema'Class;
 
+   --  Memory management: free the schema inside a Seq_Item
+   procedure Free_Item_Schema (Item : in out Seq_Item);
+
    --  Seq_Schema validates sequences with items matching a schema
    type Seq_Schema is new Schema with record
       Item : Seq_Item;
