@@ -1,6 +1,6 @@
 name = "tinyaml"
 description = "A strict YAML subset parser for Ada, inspired by StrictYAML"
-version = "0.1.0"
+version = "0.2.0"
 
 authors = ["Jochen Lillich"]
 maintainers = ["Jochen Lillich <hello@geewiz.dev>"]

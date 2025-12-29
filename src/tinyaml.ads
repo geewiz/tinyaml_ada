@@ -6,7 +6,7 @@ package Tinyaml is
    pragma Preelaborate;
 
    --  Library version
-   Version : constant String := "0.1.0";
+   Version : constant String := "0.2.0";
 
    --  Exceptions
    --

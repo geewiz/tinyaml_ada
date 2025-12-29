@@ -10,6 +10,8 @@ All notable changes to this project will be documented in this file. The format 
 
 ## [Unreleased]
 
+## [0.2.0] - 2025-12-29
+
 ### Changed
 
 - The library was missing memory management. This release introduces the
