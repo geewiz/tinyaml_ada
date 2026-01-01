@@ -1,0 +1,16 @@
+name = "tinyaml_tests"
+description = "Tests for TinyAML library"
+version = "0.2.0"
+
+authors = ["Jochen Lillich"]
+maintainers = ["Jochen Lillich <hello@geewiz.dev>"]
+maintainers-logins = ["geewiz"]
+
+[[depends-on]]
+aunit = "^26.0.0"
+
+[[depends-on]]
+tinyaml = "*"
+
+[[pins]]
+tinyaml = { path = ".." }

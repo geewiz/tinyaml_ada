@@ -197,7 +197,16 @@ Requires Ada 2022 compiler (FSF GNAT 13+).
 
 ```bash
 alr build              # Build library
-alr exec -- ./bin/test_runner   # Run tests (after building tests)
+```
+
+## Running Tests
+
+Tests use [AUnit](https://github.com/AdaCore/aunit) and live in a separate crate:
+
+```bash
+cd tests
+alr build
+./bin/test_runner
 ```
 
 ## License

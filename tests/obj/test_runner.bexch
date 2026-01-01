@@ -1,0 +1,35 @@
+[GENERATED OBJECT FILE]
+b__test_runner.o
+[PROJECT FILES]
+/var/home/geewiz/Projects/src/geewiz/tinyaml_ada/tests/tinyaml_tests.gpr
+20260101214059 fd96543b4c82de96cb5ee18c7cbf43a6
+/var/home/geewiz/.local/share/alire/builds/aunit_26.0.0_b882e96a/78c67a8b011e08e5500962fc633efb7809a9c7391b64fc383bbaebb1096eadc4/lib/gnat/aunit_shared.gpr
+20260101213759 41ab5a8efd62f124d037415ee3ae20c7
+/var/home/geewiz/.local/share/alire/builds/aunit_26.0.0_b882e96a/78c67a8b011e08e5500962fc633efb7809a9c7391b64fc383bbaebb1096eadc4/lib/gnat/aunit.gpr
+20260101213759 f53422d4a3d8e43997a8fdd15e41c19f
+/var/home/geewiz/Projects/src/geewiz/tinyaml_ada/config/tinyaml_config.gpr
+20260101214131 5386cd48cd19a5f7078359052cc4fe00
+/var/home/geewiz/Projects/src/geewiz/tinyaml_ada/tinyaml.gpr
+20251225150117 d61662c98c8ea8a213f07aefe876f0b2
+[BOUND OBJECT FILES]
+/var/home/geewiz/Projects/src/geewiz/tinyaml_ada/tests/obj/tinyaml-lexer_tests.o
+/var/home/geewiz/Projects/src/geewiz/tinyaml_ada/tests/obj/tinyaml-parser_tests.o
+/var/home/geewiz/Projects/src/geewiz/tinyaml_ada/tests/obj/tinyaml-validation_tests.o
+/var/home/geewiz/Projects/src/geewiz/tinyaml_ada/tests/obj/tinyaml_tests.o
+/var/home/geewiz/Projects/src/geewiz/tinyaml_ada/tests/obj/test_runner.o
+[GENERATED SOURCE FILES]
+b__test_runner.ads
+b__test_runner.adb
+b__test_runner.ali
+[RESULTING OPTIONS]
+-L/var/home/geewiz/Projects/src/geewiz/tinyaml_ada/tests/obj/
+-L/var/home/geewiz/Projects/src/geewiz/tinyaml_ada/tests/obj/
+-L/var/home/geewiz/Projects/src/geewiz/tinyaml_ada/lib/
+-L/var/home/geewiz/.local/share/alire/builds/aunit_26.0.0_b882e96a/78c67a8b011e08e5500962fc633efb7809a9c7391b64fc383bbaebb1096eadc4/lib/aunit/native-full/
+-L/var/home/geewiz/.local/share/alire/toolchains/gnat_native_15.2.1_4640d4b3/lib/gcc/x86_64-pc-linux-gnu/15.2.0/adalib/
+-static
+/var/home/geewiz/.local/share/alire/toolchains/gnat_native_15.2.1_4640d4b3/lib/gcc/x86_64-pc-linux-gnu/15.2.0/adalib/libgnarl.a
+/var/home/geewiz/.local/share/alire/toolchains/gnat_native_15.2.1_4640d4b3/lib/gcc/x86_64-pc-linux-gnu/15.2.0/adalib/libgnat.a
+-lrt
+-lpthread
+-ldl

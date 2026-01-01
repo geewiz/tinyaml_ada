@@ -1,0 +1,1 @@
+tinyaml-validation_tests.adb:311:24: warning: use of an anonymous access type allocator [-gnatw_a]
