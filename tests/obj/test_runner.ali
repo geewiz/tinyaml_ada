@@ -1,0 +1,112 @@
+V "GNAT Lib v15"
+M P W=b
+A -gnatA
+A -gnat2022
+A -gnata
+A -g
+A -gnatwa
+A -mtune=generic
+A -march=x86-64
+P SS ZX
+
+RN
+RV NO_DISPATCH
+RV NO_DEFAULT_INITIALIZATION
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U test_runner%b		test_runner.adb		f755a64b NE OO SU
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W aunit%s		aunit.adb		aunit.ali
+W aunit.reporter%s	aunit-reporter.adb	aunit-reporter.ali
+W aunit.reporter.text%s	aunit-reporter-text.adb	aunit-reporter-text.ali
+W aunit.run%s		aunit-run.adb		aunit-run.ali
+W tinyaml_tests%s	tinyaml_tests.adb	tinyaml_tests.ali
+
+D ada.ads		20250808065140 76789da1 ada%s
+D a-calend.ads		20250808065140 bf7f3cc9 ada.calendar%s
+D a-except.ads		20250808065140 e7970cd9 ada.exceptions%s
+D a-finali.ads		20250808065140 bf4f806b ada.finalization%s
+D a-inteio.ads		20250808065140 f64b89a4 ada.integer_text_io%s
+D a-ioexce.ads		20250808065140 40018c65 ada.io_exceptions%s
+D a-stream.ads		20250808065140 17477cbd ada.streams%s
+D a-string.ads		20250808065140 90ac6797 ada.strings%s
+D a-sttebu.ads		20250808065140 f1ad67a2 ada.strings.text_buffers%s
+D a-stuten.ads		20250808065140 c6ced0ae ada.strings.utf_encoding%s
+D a-tags.ads		20250808065140 fbca0ad5 ada.tags%s
+D a-textio.ads		20250808065140 34ef47de ada.text_io%s
+D a-tiinio.ads		20250808065140 76699c8f ada.text_io.integer_io%s
+D a-unccon.ads		20250808065140 0e9b276f ada.unchecked_conversion%s
+D ada_containers.ads	20260101213759 11329e00 ada_containers%s
+D ada_containers-aunit_lists.ads  20260101213759 d9ebc89a ada_containers.aunit_lists%s
+D aunit.ads		20260101213759 76cdf7c6 aunit%s
+D aunit-assertions.ads	20260101213759 b7f9ecd6 aunit.assertions%s
+D aunit-io.ads		20260101213759 fb5ed18b aunit.io%s
+D aunit-options.ads	20260101213759 6e5a02a6 aunit.options%s
+D aunit-reporter.ads	20260101213759 2c6ff74a aunit.reporter%s
+D aunit-reporter-text.ads  20260101213759 3a193bce aunit.reporter.text%s
+D aunit-run.ads		20260101213759 34d20999 aunit.run%s
+D aunit-run.adb		20260101213759 c843a398 aunit.run%b
+D aunit-simple_test_cases.ads  20260101213759 4111c32f aunit.simple_test_cases%s
+D aunit-test_filters.ads  20260101213759 f10b2127 aunit.test_filters%s
+D aunit-test_results.ads  20260101213759 b44de7dc aunit.test_results%s
+D aunit-test_suites.ads	20260101213759 6821dc24 aunit.test_suites%s
+D aunit-tests.ads	20260101213759 1da11d49 aunit.tests%s
+D aunit-time_measure.ads  20260101213759 d9c247b0 aunit.time_measure%s
+D gnat.ads		20250808065140 b5988c27 gnat%s
+D g-souinf.ads		20250808065140 470146ee gnat.source_info%s
+D interfac.ads		20250808065140 9111f9c1 interfaces%s
+D i-c.ads		20250808065140 e94c966a interfaces.c%s
+D i-cstrea.ads		20250808065140 ffd01b9d interfaces.c_streams%s
+D system.ads		20250808065140 14286b0f system%s
+D s-crtl.ads		20250808065140 beb39b9e system.crtl%s
+D s-exctab.ads		20250808065140 91bef6ef system.exception_table%s
+D s-ficobl.ads		20250808065140 dc5161d4 system.file_control_block%s
+D s-finpri.ads		20250808065140 5970d55a system.finalization_primitives%s
+D s-finroo.ads		20250808065140 0a7c3ed4 system.finalization_root%s
+D s-oscons.ads		20250827122531 068e1a91 system.os_constants%s
+D s-oslock.ads		20250808065140 13fa6b78 system.os_locks%s
+D s-parame.ads		20250808065140 3597fc11 system.parameters%s
+D s-pooglo.ads		20250808065140 91708d21 system.pool_global%s
+D s-putima.ads		20250808065140 17291fe4 system.put_images%s
+D s-retsta.ads		20250808065140 0f6b06cb system.return_stack%s
+D s-secsta.ads		20250808065140 578279f5 system.secondary_stack%s
+D s-soflin.ads		20250808065140 5d88fdea system.soft_links%s
+D s-stache.ads		20250808065140 0b81c1fe system.stack_checking%s
+D s-stalib.ads		20250808065140 1c9580f6 system.standard_library%s
+D s-stoele.ads		20250808065140 ccded4e8 system.storage_elements%s
+D s-stopoo.ads		20250808065140 e9fa2dd8 system.storage_pools%s
+D s-stratt.ads		20250808065140 516607ae system.stream_attributes%s
+D s-traent.ads		20250808065140 c81cbf8c system.traceback_entries%s
+D s-unstyp.ads		20250808065140 fa2a7f59 system.unsigned_types%s
+D s-wchcon.ads		20250808065140 d9032363 system.wch_con%s
+D s-wchstw.ads		20250808065140 2d112c01 system.wch_stw%s
+D test_runner.adb	20260101213641 f5664205 test_runner%b
+D tinyaml_tests.ads	20260101213037 0cf8d619 tinyaml_tests%s
+G a e
+G c Z b b [test_runner standard 8 11 none]
+G r i none [test_runner standard 8 11 none] [test_runner aunit__run 42 14 none]
+G r s text_reporter [test_runner standard 8 11 none] [text_reporterIP aunit__reporter__text 62 9 none]
+G r s result [test_runner standard 8 11 none] [resultIP aunit__test_results 140 9 none]
+G r c none [test_runner standard 8 11 none] [clear aunit__test_results 133 14 none]
+G r c none [test_runner standard 8 11 none] [suite tinyaml_tests 8 13 none]
+G r c none [test_runner standard 8 11 none] [run aunit__run 37 14 none]
+X 17 aunit.ads
+34K9*AUnit 48e10 59|3r6 4r6 9r25 10r15
+X 21 aunit-reporter.ads
+36K15*Reporter 58e19 59|3r12 10r21
+X 22 aunit-reporter-text.ads
+33K24*Text 66e24 59|3w21 10r30
+35R9*Text_Reporter<21|38R9> 64e14 59|10r35
+X 23 aunit-run.ads
+38K15*Run 65e14 59|4w12 9r31
+42u14*Test_Runner 59|9r35
+X 28 aunit-test_suites.ads
+44P9*Access_Test_Suite(43R9)
+X 59 test_runner.adb
+8U11*Test_Runner 8b11 13l5 13t16
+9U14 Run[23|42] 24|79b14 59|12s4
+10r4 Reporter{22|35R9} 12r9
+X 60 tinyaml_tests.ads
+6K9*Tinyaml_Tests 59|6w6 9r48 60|10e18
+8V13*Suite{28|44P9} 59|9r62
+

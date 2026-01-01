@@ -10,6 +10,10 @@ All notable changes to this project will be documented in this file. The format 
 
 ## [Unreleased]
 
+### Changed
+
+- Instead of a homegrown test suite, we now use AUnit.
+
 ## [0.2.0] - 2025-12-29
 
 ### Changed
