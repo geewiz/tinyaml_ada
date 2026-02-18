@@ -1,4 +1,4 @@
-with "../tinyaml.gpr";
+with "tinyaml";
 
 project Tinyaml_Examples is
 

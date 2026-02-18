@@ -1,7 +1,5 @@
-/obj/
-/lib/
-/alire/
-/config/
-.claude
-CLAUDE.md
-/bin/
+obj/
+lib/
+alire/
+config/
+bin/
